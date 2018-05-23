@@ -1,5 +1,7 @@
 package recipe.buisnessobject.pkg;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,12 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "Recipe", uniqueConstraints = { @UniqueConstraint(columnNames = { "IdRecipe" }) })
-public class Recipe {
+public class Recipe implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

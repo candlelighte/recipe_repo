@@ -29,10 +29,10 @@ public class AppConf {
 	@Autowired
 	protected Environment environment;
 
-//	public AppConf() {
-//		// TODO Auto-generated constructor stub
-//		LOGGER.debug("Configuration loaded ... ");
-//	}
+	public AppConf() {
+		// TODO Auto-generated constructor stub
+		LOGGER.debug("AppConf :: Configuration loaded ... ");
+	}
 
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {

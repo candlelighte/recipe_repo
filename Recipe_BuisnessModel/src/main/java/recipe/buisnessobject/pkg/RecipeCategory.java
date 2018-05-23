@@ -1,5 +1,6 @@
 package recipe.buisnessobject.pkg;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,9 +12,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "Category", uniqueConstraints = { @UniqueConstraint(columnNames = { "Category_id" }) })
-public class RecipeCategory {
+public class RecipeCategory implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +31,7 @@ public class RecipeCategory {
 
 	@Column(name = "Label", nullable = false, length = 250)
 	private String label;
-
+	
 	@OneToMany( mappedBy="recipeCategory" )
 	Set<Recipe> recipes;
 
